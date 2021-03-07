@@ -4,6 +4,13 @@ using namespace std;
 
 #define SIZE 100000+1
 
+
+//dijkastra algorithm is used to find the shortest path and distance of every node from source node.
+// it can be used for directed as well as for undirected graph.
+// it fails for the graph in which negative weight edges are present.
+// for some  graphs (containing negative weight edges) it will give the correct answer but for some graphs
+// it will fail
+
 vector<pair<int,int> > v[SIZE];//each vertex has all the connected vertices with the edges weight
 int dis[SIZE];
 bool vis[SIZE];
