@@ -5,11 +5,15 @@ using namespace std;
 #define SIZE 100000+1
 
 
+// single source shortest path problem-->shortest path of every node from single source
 //dijkastra algorithm is used to find the shortest path and distance of every node from source node.
+// it works on graphs where weight is mentioned.if graph has no weight then use BFS to find the shortest path 
+// and distance  of every node from source node.
 // it can be used for directed as well as for undirected graph.
 // it fails for the graph in which negative weight edges are present.
 // for some  graphs (containing negative weight edges) it will give the correct answer but for some graphs
-// it will fail
+// it will fail.
+// it cannot find the negative weight cycles in the graph
 
 vector<pair<int,int> > v[SIZE];//each vertex has all the connected vertices with the edges weight
 int dis[SIZE];
