@@ -13,3 +13,27 @@ how to set up sublime text editor for competitive programming-->
 
 5. press ctrl+shift+b then "c++ single file-run". it will take input from input.txt and show output in output.txt
 6. after that next time just save the code, change the input and hit ctrl+b to execute. 
+
+###
+Setting up auto formatting-->
+1. tools->command pallet-> search "install package" and hit enter
+2. after installation of "install package"-> go to tools->command pallet->search "a style formatter"-> hit enter
+3. preferences->browse packages->SublimeAStyleFormatter->open file "SublimeAStyleFormatter.sublime-settings" -> find "autoformat_on_save" and make it as true.
+
+now whenever i will save code it will format that automatically
+
+###shortcuts
+1. ctrl a-> to select all
+2. ctrl s-> to save
+3. select text -> ctrl c -> to copy selected text
+4. curser on line -> ctrl c -> will copy whole line
+5. ctrl v -> to paste
+6. select text -> ctrl x -> to cut selected text
+7. curser on line -> ctrl x -> will cut whole line
+8. ctrl v -> to paste
+9. press ctrl and click on multiple locations. it will create multiple cursor and the we can do same thing simultaneously in multiple location.
+10. if a text is at multiple places and we want to change it. then select one text, it will highlight all other similar texts. press ctrl + D multiple time to select all of them , it will create multiple cursor also. then we can change that variable with another in all the places.
+11. ctrl + left arrow --> to go left side word by word
+12. ctrl + right arrow --> to go right side word by word 
+12. ctrl + / --> to comment/umcomment a line
+13. select multiple lines -> ctrl + / --> to comment/umcomment a line
