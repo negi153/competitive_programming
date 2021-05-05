@@ -1,0 +1,15 @@
+how to set up sublime text editor for competitive programming-->
+
+1. open cpp file, input.txt and output.txt in sublime
+2. view->layout->columns 3
+3. view->group-> max columns 2
+
+4. include this in c++ code
+
+#ifndef ONLINE_JUDGE
+	freopen("input.txt","r",stdin);
+	freopen("output.txt","w",stdout);
+#endif
+
+5. press ctrl+shift+b then "c++ single file-run". it will take input from input.txt and show output in output.txt
+6. after that next time just save the code, change the input and hit ctrl+b to execute. 
