@@ -22,6 +22,8 @@ int parent[100]; //array to store the parents of nodes
 
 int find_parent(int v) { // function to return the root parent of the node or vertex
 
+	// cout << "vertex is : " << v << endl;
+
 	int v_temp = v; // v_temp will be used to compress the path between v and root.
 
 	while (parent[v] > 0) {
@@ -31,10 +33,8 @@ int find_parent(int v) { // function to return the root parent of the node or ve
 
 	//after getting out of this while loop, v will be our root node and parent of v will be a negative value. negative value here tells that we are at the top of node. and absolute value of that will tell us the rank (which means how many elements are connected to that node)
 
-
-	parent[v_temp] = v; //here v contains the root of original v node, and v_temp contains the value of v.. now we are connecting directly v to its root node. so if second time we need to find the root of v so it will not have to go to the same path again. it will find its parent in 2 step.
-
-
+	if (v != v_temp) // compress path only if node is not equal to its root
+		parent[v_temp] = v; //here v contains the root of original v node, and v_temp contains the value of v.. now we are connecting directly v to its root node. so if second time we need to find the root of v so it will not have to go to the same path again. it will find its parent in 2 step.
 
 	return v;
 
@@ -43,6 +43,8 @@ int find_parent(int v) { // function to return the root parent of the node or ve
 
 void union_sets(int v1, int v2) { // this function joins the two sets
 	//parent of the root node will contain the rank. which vertex has more rank, it will the parent of another node
+
+
 	if (abs(parent[v1]) >= abs(parent[v2])) {
 		parent[v1] = parent[v1] + parent[v2]; //add the rank
 		parent[v2] = v1; //make one node as a parent of another node
@@ -50,7 +52,6 @@ void union_sets(int v1, int v2) { // this function joins the two sets
 	else
 	{
 		parent[v2] = parent[v1] + parent[v2];
-
 		parent[v1] = v2;
 	}
 }
@@ -59,8 +60,6 @@ void union_sets(int v1, int v2) { // this function joins the two sets
 void detect_cycle(int n) {
 
 	memset(parent, -1, sizeof(parent)); //initially we are marking parent of every node as -1, that means every element is present in different sets.
-
-	// for (int i = 0; i < 100; i++) cout << parent[i] << endl;
 
 	int v1, v2; //two variable to represent the vertex of an edge
 	int top_parent_v1, top_parent_v2; // two variables to store the root parents of 2 vertex
@@ -76,16 +75,13 @@ void detect_cycle(int n) {
 			top_parent_v1 = find_parent(v1);
 			top_parent_v2 = find_parent(v2);
 
-
 			if (top_parent_v1 == top_parent_v2) {
 				cout << "Cycle is present" << endl;
 				return;
 			}
 
 			union_sets(top_parent_v1, top_parent_v2);
-
 		}
-
 	}
 
 	cout << "Cycle is not present";
@@ -113,20 +109,7 @@ int main() {
 		//but in finding the cycle we will pick the edge only one time.
 	}
 
-
-
-	// for (int i = 0; i < n; i++)
-	// {
-	// 	cout << i << "->";
-	// 	for (int j = 0; j < graph[i].size(); j++)
-	// 		cout << graph[i][j] << " ";
-	// 	cout << endl;
-	// }
-
 	detect_cycle(n);
 
-	for (int i = 0; i < n; i++) {
-		cout << "parent of " << i << " is " << parent[i] << endl;
-	}
 	return 0;
 }
