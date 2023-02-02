@@ -1,0 +1,47 @@
+flow chart -> algorithm ko graphical form m dikhana ( to show algorithm in a graphical form)
+algorithm -> series of steps to complete a task. 
+    eg. making tea steps -> 
+    1. take water 
+    2. put on pan
+    3. open gas
+    4. put tea
+    5. put sugar
+    6. put milk
+
+pseudo code -> nakli code (fake code) --> which computer doesn't understand but humans can understand
+            - generic way of representing your algo in textual format. (normal english languaage)
+            eg. 
+            1. start program
+            2. enter 2 number A & B
+            3. add the numbers
+            4. print sum
+            5. end program
+
+--------------------------------------------------------------
+
+Today we  learned about : 
+1. Thought process to solve a problem.
+2. Algorithm.
+3. Flowchat.
+4. Pseudocode. 
+
+So thought process to solve a problem involves understanding the problem, knowing about the input values and then coming up with a approach to solve it. 
+
+Algorithm: It can be defined as set of steps required to complete a task.
+
+Flowchart: is a graphical representation of an algorithm. It makes use of symbols which are connected among them to indicate the flow of information & processing. 
+
+A flow chart has following components: 
+1. Terminator 
+2. Input /Output 
+3. Process Block
+4. Decision Making Block 
+5. Arrows 
+6. Connector
+
+Pseudocode: Nakli Code 
+It is a detailed yet readable description of what a computer program or algorithm must do in textual form.
+
+
+-----------------------------------
+covered till  45:00
