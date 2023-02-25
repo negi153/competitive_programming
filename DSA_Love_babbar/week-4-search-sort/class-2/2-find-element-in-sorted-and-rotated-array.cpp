@@ -53,7 +53,7 @@ void find_target_in_sorted_and_rotated_array(vector<int> &v,int target){ // line
     cout<<"target index - "<<lower_bound(v.begin()+pivot_index+1,v.end(),target)-v.begin()<<endl;
 
   else
-    cout<<"not found"<<endl;
+    cout<<"not found" <<endl;
 
 }
 
