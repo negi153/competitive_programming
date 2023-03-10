@@ -1,0 +1,21 @@
+difference between array and pointer -->
+
+1. in case of array, sizeof() function gives the space take by array. 
+    eg. 
+    int arr[5]; 
+    cout<<sizeof(arr); // it will give the total space consumed by array --> total size of array --> no. of elements * size of 1 elements
+                        // total size of array = 5(no. of elements) * 4(size of int) = 20 bytes
+    int arr[5];
+    int* p = arr;
+    cout<<sizeof(p); // always gives the size of pointer, which is system dependent. 
+                    // in 64 bit system, machine can have at max 64 bit address that is 8 byte address and to store tha adrress pointer will alywas taks 8 bytes
+                    // in 32 bit system, machine can have at max 32 bit address that is 4 byte address and to store tha adrress pointer will alywas taks 4 bytes
+
+2. in array we can not update base address of array like below ->
+        int a[5];
+        a = a+1; // errror as we can 't update address of a in symbol table
+    but in pointer we can update like below
+        int a[5];
+        int* p = a;
+        p = p+1;
+        cout<<p<<endl;
