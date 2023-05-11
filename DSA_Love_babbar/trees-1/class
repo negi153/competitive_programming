@@ -1,0 +1,20 @@
+
+Homework
+    1. inorder/preorder/postorder --> iterative method
+    2. create tree using level order traversla
+    3. check if 2 tree are identical
+    4.check if 2 trees are mirror images
+
+class 2 1:00
+class -->
+balance tree
+or convert tree into sum tree
+lowest common ancestor --> most important
+kth ancestor --> 1 option (by traversing)  , 2 option -> store in vector and find
+find path in tree which gives fixed sum
+
+homework --> 
+kth ancestor by vector
+is tree sum tree 
+find all the path between any 2 nodes which gives sum equal to fixed value
+sum of longest bloodline in binary tree
