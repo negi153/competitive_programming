@@ -18,3 +18,20 @@ kth ancestor by vector
 is tree sum tree 
 find all the path between any 2 nodes which gives sum equal to fixed value
 sum of longest bloodline in binary tree
+
+
+class 3 ->
+
+1. create tree using preorder tree traversal and inorder traversal --> done
+2. create tree using postorder tree traversal and inorder traversal --> done
+3. vertical order traversal
+
+
+hw 
+1. create tree using preorder tree traversal and postorder traversal
+2. zig zag traversal
+3. boundary traversal
+vertical
+morris
+top/left/bottom/right view
+bun
