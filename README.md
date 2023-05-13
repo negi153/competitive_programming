@@ -1,4 +1,7 @@
 # competitive_programming
-##standard problems of CP
+This repository contains data structure and algorithm concepts and practice question.
 
-This repository have all the standard question of competitive programming.
+## Resources
+- Youtube
+- Blogs
+- Courses
