@@ -1,0 +1,13 @@
+inorder traversal of binary search tree is always in sorted order
+
+class 1 -> 
+create bst.
+traverse bst
+search element in bst
+max in bst
+min in bst
+inorder successor/predecessor
+    inorder predecessor of k-> left subtree of k element ka max value -> exception : when element is leaf
+    inorder successor of k-> min value of right subtree of elemetn k exception : when element is leaf
+
+deletion in bst
