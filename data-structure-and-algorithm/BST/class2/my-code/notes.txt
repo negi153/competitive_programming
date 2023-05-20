@@ -1,0 +1,21 @@
+BST property -> 
+    1. left < root > rights
+    2. inorder is sorted
+
+Question
+1. validate BST
+    sol 1-> store inorder in a vector ->if it is sorted, then it is BST otherwise not -> o(n)
+    sol 2-> by recursion
+
+2. LCA (lowest common ancestor)
+
+
+Q3. kth smallest
+
+Q4. create bst from inorder
+
+Q5. convert BST to balanced BSt -> get inorder and cret BST again
+
+Q6. find nodes whose sum is target
+    method 1 - > traverse on each node --> then for each node find the target - node from tree 
+    method 2 -> inorder -> 2 pointer approach
