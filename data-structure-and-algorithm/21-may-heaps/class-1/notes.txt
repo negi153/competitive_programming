@@ -1,0 +1,46 @@
+heap -> a datastructer that is a complete binary tree(CBT) and that holds a heap property
+    max heap property -> current node more than it's child
+    min heap property -> current node less than it's child
+
+    * store then elements in array and start indexing from 1
+    * indexing - 1, current node = i , left child = 2*i, right child = 2*i+1, parent = i/2
+    * indexing - 0 , current node = i, left child = 2*i+1 , right child = 2*i+2
+    
+CBT - 
+    * all levels are completely filled(except last level)
+    * filling is done from left to right. numbering is from left to right
+    * >= (n/2 + 1) --> are always leaf node
+
+
+
+Questions - 
+
+1. heap insertion - o(log(n))
+    logic - 
+        1. add element at the end of array
+        2. compare this element with it's parent untill we get to the correct position and replace element (going from leaf to root)
+
+2. heap deletion - always root node gets deleted. 
+    logic - 
+        1. replace root node with last node to delete root node
+        2. now place the root node on it's correct position (going from root to leaf)
+
+3. heapify - we need to send a node to it's correct position in heap - o(logn)
+    logic - 
+            1. find the index of largest element among the current node , left child and right child
+            2. if largest != current, then swap
+            3. otherwise return as it is in correct position
+
+4. build heap from array
+    logic - 
+        1. go from right index to left index of array, and no need to heapify leaf nodes
+        3. heapify the elements of array from n/2 to 1 index. (n/2 + 1) to n index elements are leaf node in complete Binary tree(CBT)
+
+5. heapsort --> sorting array
+    logic - 
+        1. replace last node of arry with root node(max element). now last element of array contain maximum element
+        2. heapify the root node to place it in it's correct position
+        3. do this porcess until size >0
+        
+Homework-->
+1. how buildheap complexigy it o(n) ? 

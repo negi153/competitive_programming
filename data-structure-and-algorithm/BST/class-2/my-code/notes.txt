@@ -12,7 +12,8 @@ Question
 
 Q3. kth smallest
 
-Q4. create bst from inorder
+Q4. create bst from inorder --> done
+    sol - pick mid element of array and create root node, for left side array create left subtree and for right side array create right subtree
 
 Q5. convert BST to balanced BSt -> get inorder and cret BST again
 
