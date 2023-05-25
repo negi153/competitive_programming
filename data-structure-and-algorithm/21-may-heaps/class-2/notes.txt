@@ -1,0 +1,58 @@
+
+Questions -->
+Q1. STL - max heap / min heap 
+
+Q2. kth smallest number [it looks like that it will be solved by min heap, but max heap will be optimal.] [min heap is also possible but not optimal]
+    Question - given array, find kth smallest number
+    logic 1 - sort array(nlogn), and answer is a[k-1]
+
+    logic 2 - using min heap -
+                - create min heap of n size (o(n)), pop k times, it will give kth smalest element
+                - issue -> it will take space complexity -> o(n)
+    
+    logic 3 - [best way] using max heap
+            - insert first k elements of array in max heap
+            - for the remaining elements of array, insert only when element is less than top element. and delete top element
+            - this max heap will contain k small eleent of array, and top will contain smallest kth element
+            - time - o(n) (as we traverse array)
+
+            - benefit -> it will only take o(k) space
+
+Q3. merge 2 max-heap
+    - logic 1 - 
+        - merge two array -> o(n+m)
+        - build heap - 
+
+    - logic 2 -> 
+        - take elements from first heap and insert into 2nd heap one by one.
+        - o(nlogn) -> logn to insert into heap and we are inserting n elements
+
+    logic 3 - watch video again
+
+Q4. check if a complete binary tree is heap or not?
+
+    logic - recursion-> for each node get the max value from left and get max value from right, if left subtree is heap and right subtree is heap and current_node > left and current_node > max, then return true
+
+    if(leaf node)
+        return [True, root->data]
+    if(root == null)
+        return [True, INT_MAIN]
+    
+
+Q5. convert BST to max heap?
+    logic 1 - > insert elements of BST to vector and then build heap
+
+    logic 2 -> BST is also a CBT, so structure will be same. only change values
+            traverse inorder in BST and store elements in array which will be sorted array. store array element in post order again in tree. 
+
+    logic 3 - for each non leaf node, do heapify
+
+Q6. check if a tree is CBT?
+    logic 1 - level order
+    logic 2 - number the nodes from 1 to n -> if total current node != no. of nodes should be present in the BST, then it's not CBT else it is CBT
+
+Q7. merge k sorted arrays
+    logic 1 - move all elements in 1 aray and sort --> nk log(nk)
+
+    logic 2- crete min heap and store first element of all the k sorted array in min heap. heap size will be k.
+            the top of the  heap will be smallest so put that eleent in final_array and pop that and push next element of that array.
