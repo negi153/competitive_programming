@@ -1,0 +1,26 @@
+Q1. leetcode-medium --> https://leetcode.com/problems/remove-stones-to-minimize-the-total/
+    logic - greedy + maxHeap
+        in each operation if we apply operation on the max pile, then we can minimize the no. of stores remaining at the last
+
+Q2. leetcode - medium - https://leetcode.com/problems/reorganize-string/ 
+    logic - 
+        intution-> character with maximum frequency need to used more, so we will make a max heap of element and frequency.
+                    every time pick the 2 top most element of heap and they will be different everytime. add those to string and decrement the freqeuncy and put again back to heap.
+
+                    handle the case when heap has 1 last element. if frequency of last character is more than 1, then string can't be formed
+
+Q3. leetcode - medium - // https://leetcode.com/problems/longest-happy-string/ (happy longest string)
+    - lgoci -> as per question character with maxinum occurance need to put in string. we will take 2 characters at a time since we need to create maximum length string. we can't take >= 3, because it won't be happy string 
+
+Q4. median in a steam - leetcode hard --> https://leetcode.com/problems/find-median-from-data-stream/
+    logic1 -> store in vector --> sort vector nlogn --> find median --> time -> o(nlogn)
+    logic2 -> store in BST -> then inorder traversal -> then find median --> time complexity --> (inserting will take nlogn)-> worst case o(n^2) (in case of skew tree)
+    logic 3 ->  median will be the middle element --> right half will be min heap so it may contain mininum of right half,
+                                                  --> left half will be max heap so it may contain maximum of left half
+                                                  --> and top of both heap will give median
+
+                     
+
+
+Homework -->
+1. read about stl make_heap and heapify --> cpp reference

@@ -1,0 +1,33 @@
+https://leetcode.com/problems/remove-stones-to-minimize-the-total/
+
+class Solution {
+public:
+    int minStoneSum(vector<int>& piles, int k) {
+        priority_queue<int> maxHeap;
+
+        // insert each element in maxHeap
+        for(auto x: piles)
+            maxHeap.push(x);
+
+        // perform operation as per question
+        while(k>0){
+
+            int maxElement = maxHeap.top();
+            maxHeap.pop();
+            maxElement = maxElement - floor(maxElement/2);
+
+            maxHeap.push(maxElement);
+
+            k--;
+        }
+
+        // find no. of stones
+        int sum = 0;
+        while(!maxHeap.empty()){
+            sum+=maxHeap.top();
+            maxHeap.pop();
+        }
+
+        return sum;
+    }
+};
