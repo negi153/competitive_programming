@@ -1,0 +1,17 @@
+Q1. merge k sorted arrays
+    logic 1 - move all elements in 1 aray and sort --> nk log(nk)
+
+    logic 2- crete min heap and store first element of all the k sorted array in min heap. heap size will be k.
+            the top of the  heap will be smallest so put that eleent in final_array and pop that and push next element of that array into heap.
+
+Q2. merge k sorted linkedlist -> 
+    leetcode -> https://leetcode.com/problems/merge-k-sorted-lists/
+    
+    same as above
+
+Q3. amazon level question --> smallest range in k sorted linkedlist?
+    leetcode hard - https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/
+    
+    logic 1 - if we consider first element of k arrays, so maximum and minimum among those will include atleast 1 element from each sorted linkedlist. go next of min element so decrease the range
+
+    NOTE --> code is not correct giving issue -> need to see video again

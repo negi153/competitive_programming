@@ -50,9 +50,3 @@ Q5. convert BST to max heap?
 Q6. check if a tree is CBT?
     logic 1 - level order
     logic 2 - number the nodes from 1 to n -> if total current node != no. of nodes should be present in the BST, then it's not CBT else it is CBT
-
-Q7. merge k sorted arrays
-    logic 1 - move all elements in 1 aray and sort --> nk log(nk)
-
-    logic 2- crete min heap and store first element of all the k sorted array in min heap. heap size will be k.
-            the top of the  heap will be smallest so put that eleent in final_array and pop that and push next element of that array.
