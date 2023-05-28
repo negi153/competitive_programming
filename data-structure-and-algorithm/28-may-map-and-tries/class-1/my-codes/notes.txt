@@ -1,0 +1,46 @@
+Hashmap- a data structure that store value in form of key, value.
+    interview -> they don't ask map solution as it is easy. so always know the other solution apart from map
+
+
+    ordered map -> insert o(logn) --> BST implementation
+    unordered map -> insert o(1), retrievel - o(1) --> array implementatoin + hash table
+
+
+cout<<m["abc"]<<endl; --> if we are access an element with square bracket and  key "abc" not present in map, then it will insert this key in map.
+
+* if map implemented by linked list-> insertion deletion -- o(n)
+* if map implemented by BST -> insertion, deletion, searching -> o(logn). ordered_map is based on BST thats why ordered_map has o(logn ) complexity
+* map implemented by array -> operation in o(1)
+    * hash function -> it convert complex key in index
+    * hash function -> 
+            -> hash code -> convert key to numeric part. it may be out of range of array
+            -> compression function -> it brings the numeric part inside the array range
+    * when hash funciton gives same result for different inputs , then that is called collission
+        * solution ->
+            1.  "open hashing" --> insert those elements in the form of linked list. it won't give o(n) because we will make hash function powerful so that collion occur minimal
+            2. "liner probing" -> f(i) = i -> when key is present in the position given by hash function, then look for blank place after this position. whenever we get blank insert there
+            3. quadratic probing -> f(i) = i^2 -> when key is present in position given by hash function,then look for blank space in i^2, if again this place is not blank then go to i^4 and so on. insert whenever we get blank position
+
+let no. of elemnts  = n, no. of free spaces = b.
+a good hash function is that where n/b < 0.7
+    load factor = n/b (should be less than 0.7)
+
+
+map insertion --> get hash value (o(k)) + insert into array o(1) ---> overall it takes o(k) to insert but n>>>>>k that's why we ignore it and say o(1)
+map find -> open hashing -> for 1 index we have linked --> it should be o(n) to get the retrievval but we create a hash funtion so much good so this case never occurs.
+
+
+Q1. create a Data Structure which can do these operatio in o(1) -> inserting, searching, deletion, get_random 
+Answer - map
+
+oops, dbms, os, LLD(low level design) + HLD(high level design) --> interview
+-----------------------------------------------------------------------
+Q1. input string and give frequency of each character
+Q2. check if a linked-list has a loop
+
+    logic 1 - Follow the steps below to solve the problem:
+            Have a visited flag with each node.
+            Traverse the linked list and keep marking visited nodes.
+            If you see a visited node again then there is a loop
+
+    logic 2- (using hashmap) - The idea is to insert the nodes in the hashmap and whenever a node is encountered that is already present in the hashmap then return true.
