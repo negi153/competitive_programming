@@ -10,5 +10,3 @@ This repository contains data structure and algorithm concepts and practice ques
 - Youtube
 - Blogs
 - Courses
-
-## progress - trees class5-> need to see starting 1 hour
