@@ -1,3 +1,6 @@
+// leetcode easy - https://leetcode.com/problems/diameter-of-binary-tree/description/
+
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -24,7 +27,8 @@ public:
         return ans;
     }
 
-    int diameterOfBinaryTree1(TreeNode* root) {
+    // solution 1 - go to every node and max diameter from left, right and current --> o(n^2)
+    int diameterOfBinaryTree1(TreeNode* root) {  
         if(root == NULL) 
             return 0;
         
@@ -40,3 +44,31 @@ public:
         return ans;
     }
 };
+
+//-------------------------------------------------------------------------------------------
+// this method will find the max height of each node, and at every node it will find the current diameter and store into max if current diameter is more than existing diameter -> o(n)
+
+    int diameter = 0;
+
+    int height2(TreeNode* root){
+        if(root==NULL)  
+            return 0;
+
+        // calculate max height of node
+        int leftHeight = height2(root->left);
+        int rightHeight = height2(root->right);
+        
+        // get current diameter
+        int currentDiameter = leftHeight + rightHeight;
+
+        if(currentDiameter > diameter)
+            diameter = currentDiameter;
+
+        return max(leftHeight, rightHeight)+1;
+    }
+
+    int diameterOfBinaryTree(TreeNode* root) {
+        height2(root);
+        return diameter;
+        
+    }
