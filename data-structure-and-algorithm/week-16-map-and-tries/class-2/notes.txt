@@ -1,0 +1,23 @@
+tries - a type of Data Structure
+        1. multi way tree structure (means a node can have many childern)
+        2. majorly used for pattern searching. 
+        3. time complexity proportional to pattern length (approx)
+        4. used for large amount of Data
+        5. google auto suggestion can be created by this Data structure,[ we can also create a project on this.]
+
+    * store null character (\0) in root
+    * for last character of stirng, store extra data so we can identify that this is last node of string. it is terminal node of string
+
+    * when we need to delete a string, don't delete all the character because it will impact other strings, just mark last character of string as "not terminal"
+
+    --> Insertion -> o(n)  --> length of word
+                if node present -> go to the node
+                if node is absent -> create node and go to node
+
+
+        children can be stored in map as well
+
+    --> search -->o(n) --> length of word
+
+
+Q1. tree creation, insrtion, searching, deletion
