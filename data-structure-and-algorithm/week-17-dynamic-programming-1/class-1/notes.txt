@@ -1,0 +1,86 @@
+DP (dynamic programming)
+                    - a kind of programming technique where we don't repeat the past. once we solved a problem , we store it and use it whnever we need. we don't calculate it again.
+                    - Those who forget the past are condemed to repeat it.
+                    - learn from past
+                    - which we have calculated one time, we don't have to calculate again.
+
+                    phases -> 
+                    1. top down -> recursion + memoization
+                    2. bottom up -> tablulation method (iterative)
+                    3. space optimization -> might not be possible to every problem
+
+when to apply dp -> 
+    conditions ->
+        1. overlapping subproblems
+            -> means solving same problem again and again
+        2. optimal substructure
+            ->  optimal solution of bigger problem can be calculated using optimal solution of smaller problem
+
+        eg. fibonacci series -> o, 1, 1, 2, 3,5, 8,...
+            recursive relation -> f(n) = f(n-1) + f(n-2)
+                        base case ->
+                                f(1) = 1
+                                f(0) = 0
+
+                eg. for f(5) --> we are going to calculate f(3) multiple times, which represents that this problem has overlapping subproblems
+                2. optimal solution of finding n fibonacci problem can be created using optimal solution of n-1 and n-2 number
+
+how to write code ->
+    1. first write recursive code
+       
+        int fibonacci(int n){
+            // base case
+            if(n==1 || n==0)
+                return n;
+
+            int ans = fib(n-1) + fib(n-2);
+            return ans;
+        }
+
+    2. topdown approach -> recursion + Add memoization
+        it includes 3 step process -
+            1. create dp array
+                - identify the dp array size
+                - identify what should be the initial value in dp array
+            2. store answer in dp
+            3. just after base case, check if answer already exist, if yes, then return that otherwise calculate answer.
+
+        eg. 
+        it takes recursion stack space + dp array space
+
+        vector<int> dp(n+1,-1);  // create a dp array and initialize it
+
+        int fibonacci(int n){
+            // base case
+            if(n==1 || n==0)
+                return n;
+
+            if(dp[n] != -1)
+                return dp[n];
+
+            dp[n] = fib(n-1) + fib(n-2); // storing answer
+            
+            return dp[n];
+        }
+    
+    3. bottom up approach  - tabulation method (iterative)
+        - create dp array
+            - identify the dp array size
+            - identify what should be the initial value in dp array
+        - store base case in dp array
+        - write iterative solution with the help of recurance relation
+
+    
+    4. space optimize -- >
+        - see if here is any opportunity to reduce space complexity
+        - from the recurrance relation, find on which parameters our varialbe "i" depends?
+        eg. in fibonacci, i depends on i-1 and i-2
+
+
+Questions - 
+1. fibonacci -> leetcode easy https://leetcode.com/problems/fibonacci-number/
+
+
+
+Homework
+1. staircase problem - // leetcode easy - https://leetcode.com/problems/climbing-stairs/description/

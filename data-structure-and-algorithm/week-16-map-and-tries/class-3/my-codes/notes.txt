@@ -1,0 +1,4 @@
+need to see recursion before dp--> 
+
+1. [trie based] longest-common-prefix --> leetcode easy - https://leetcode.com/problems/longest-common-prefix/
+2. google auto suggestion using trie
