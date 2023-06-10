@@ -1,0 +1,6 @@
+Questions
+1. coin change problem
+    given input array containing coins, infinite no. of cons
+    target amount need to create
+
+    output --> minimum no. of coins to reach target amount
