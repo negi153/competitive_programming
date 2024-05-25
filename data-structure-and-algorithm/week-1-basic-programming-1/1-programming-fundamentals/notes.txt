@@ -42,6 +42,3 @@ A flow chart has following components:
 Pseudocode: Nakli Code 
 It is a detailed yet readable description of what a computer program or algorithm must do in textual form.
 
-
------------------------------------
-covered till  45:00
