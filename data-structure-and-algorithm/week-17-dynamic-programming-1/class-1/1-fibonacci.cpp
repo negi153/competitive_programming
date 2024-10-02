@@ -13,6 +13,7 @@ public:
         return ans;
     }
 
+    // top-down approah or "recursion + memoization"
     int topDownDPSolution(int n,vector<int>& dp){
         ///base case
         if(n==1 || n==0)
@@ -28,7 +29,7 @@ public:
         return dp[n];
     }
 
-
+    // iterative solution or "tabulation method"
     int bottomUpDPSolution(int n){
             /// step1. create dp array
             vector<int> dp(n+1,-1);
@@ -37,6 +38,7 @@ public:
             dp[0]=0;
             if(n==0)
                 return dp[0];
+                
             dp[1]=1;
             if(n==1)
                 return dp[1];

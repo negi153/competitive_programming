@@ -4,3 +4,7 @@ Questions
     target amount need to create
 
     output --> minimum no. of coins to reach target amount
+
+
+----------
+status - video till 1:10:00
