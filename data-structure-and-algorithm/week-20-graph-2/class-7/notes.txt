@@ -1,0 +1,44 @@
+negative weight edges in graph - 
+    if any cycle in graph has negative sum of weights, then it's called negative cycle graph
+
+    why dijkastra doesn't work on negative edges ? 
+        - in case of negative edges and cycle as show in image "why-dijkastra-fail-in-negative.png", dijkastra will go into loopp to find the shorter distance. so it will not work.
+        dijkastra will not work in negative weight graph
+
+Bellman ford - this algorithm will be used to handle negative weight and find shortest distance from source node to al the other nodes
+    logic - (we have n nodes)
+        1. loop for 1 to n-1 
+            - in each loop apply relaxation on each edge. (relaxation means -> distance[u]+weight <=distance[v])
+
+    after n-1 times, we will have shortest distance in our distance array.
+
+    why n-1 times ? - source node will have optimal answer 0 in beginging, and in first iteration, we will get the optimal answer for next level.
+                        similarly in each iteration, we will be gettint ght optimal answer for the next level. that's why we need n-1 iteration
+
+how to detect negative cycle ->
+    we have seen that, if graph has negative cycle, then it will go infinitely to update the distance array.
+    so when we applied belllan ford n-1 times, we should definitely get shortest distance. but we will apply 1 more time, if it has updated values in nth iteration, then that means there is negative cycle.
+
+
+time complexity - 
+    dijkastra - o(Elogv)
+    bellman ford - o(N*E) (not good)
+
+Till now all the algorithm which we have worked on those are "single source shortest path", means from a single source we were identifying the shortest path for each node.
+---------------------------------------------------
+Floydd warshall - 
+    - it's multiple source shortest path algorithm. means it can giev the shortest path between any 2 nodes. it will find the shortest distance from any node to any other node
+    
+    the Floyd-Warshall algorithm can handle negative edge weights, but it cannot handle graphs with negative weight cycles
+
+    idea - 
+        we will ned a helper node using that we will try all the possible combinateions. suppose i want to find the shortest path from 0 to 3.
+            using helper - 
+                go from 0 to 3 using 0
+                go from 0 to 3 using 1
+                go from 0 to 3 using 2
+                go from 0 to 3 using 3
+
+                go for every possible way and find the minimum path.
+    logic - 
+        1. create 2d arry, mark distance of node from itself as 0 (means digonal elements as 0) and remaining as infinity

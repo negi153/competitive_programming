@@ -18,7 +18,7 @@ Q2. kth smallest number [it looks like that it will be solved by min heap, but m
 
             - benefit -> it will only take o(k) space
 
-Q3. merge 2 max-heap
+Q3. merge 2 max-heap 
     - logic 1 - 
         - merge two array -> o(n+m)
         - build heap - 
@@ -36,7 +36,7 @@ Q4. check if a complete binary tree is heap or not?
     if(leaf node)
         return [True, root->data]
     if(root == null)
-        return [True, INT_MAIN]
+
     
 
 Q5. convert BST to max heap?

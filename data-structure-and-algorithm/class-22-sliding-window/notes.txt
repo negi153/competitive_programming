@@ -1,0 +1,21 @@
+Sliding window technique - 
+    types - 
+        1. fixed size window
+        2. variable size window
+        3. two pointer approach
+        4. optimised sliding windown(will be using extra data sturcuture, like map, frequency array etc) 
+
+    article - https://leetcode.com/tag/array/discuss/1122776/Summary-of-Sliding-Window-Patterns-for-Subarray-Substring
+    
+questions are present in "fixed-window-quetions.png ", "variable-window-questions.png" ,"2-pointer-questions.png","optimised-sliding-window-questions"
+
+
+comparator -> 
+
+    struct cmp {
+    bool operator()(const pair<int, int>& a, const pair<int, int>& b) const {
+        if (a.first != b.first)
+                return a.first > b.first;
+            return a.second > b.second;
+        } 
+    };

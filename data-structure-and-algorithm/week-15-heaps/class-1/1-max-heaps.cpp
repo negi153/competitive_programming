@@ -1,146 +1,148 @@
-#include<iostream>
-
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<vector>
+#include<limits.h>
+#include<algorithm>
 using namespace std;
 
-
-class Heap{
-  public:
-    int arr[101];
-    int size;
-
-    Heap(){
-      size = 0;
-    }
-
-    void insert(int value){
-      // increase size
-      size = size + 1 ;
-      int index = size;
-      
-      // insert element to last 
-      arr[index] = value;
-
-      // put this value to right position
-      while(index > 1){
-        int parentIndex = index/2;
-
-        if(arr[index] > arr[parentIndex]){
-            swap(arr[index] , arr[parentIndex]); // swap new element with parent
-            index = parentIndex; // update current index
-        }
-        else{ // element is in correct place then break loop
-            break;
+class heap{
+    
+    public:
+        vector<int> arr = {-1};
+        int len = 0;
+        
+        void insert(int n){
+            arr.push_back(n);
+            len++;
+            
+            // update it to it's correct position
+            int index = len;
+            while(index > 1){
+                int parent = index/2;
+                if(arr[parent] < arr[index]){
+                    swap(arr[parent],arr[index]);
+                    index = parent;
+                }
+                else
+                    break;
+            }
         }
         
-      }
-      
-    }
-
-    int delete(int value){ // only delete root node(that is max value)
-      
-        int ans = arr[1]; // store maximum element of heap
-      
-        // replace root node with last node to delete root node
-        arr[1] = arr[size];
-        size--;
-
-        //now place the root node on it's correct position (going from root to leaf)
-        int index = 1;
-        while(index < size){
-          int leftIndex = 2*index; // left child
-          int rightIndex = 2*index+1; // right child
-
-          // find the index of elements among current node,left child, right child and replace with it
-          int largestIndex = index; 
-
-          if(leftIndex <=size && arr[leftIndex] > arr[largestIndex]){
-            largestIndex = leftIndex;
-          }
-
-          if(rightIndex <=size && arr[rightIndex] > arr[largestIndex]){
-            largestIndex = leftIndex;
-          }
-
-          if(largestIndex == index){
-            // it's in correct position
-            break;
-          }
-          else{
-            swap(arr[largestIndex], arr[index]);
-          index = largestIndex;
-          }
-          
-        }
-
-      return ans;
-    }
-
-    void heapify(int a[], int size, int index){
-
-        int leftIndex = 2*index;
-        int rightIndex = 2*index + 1;
-        int largestIndex = index;
-
-        if(leftIndex <= size && arr[leftIndex] > arr[largestIndex])
-            largestIndex = leftIndex;
-
-        if(rightIndex <= size && arr[rightIndex] > arr[largestIndex])
-            largestIndex = rightIndex;
-
-        if(largestIndex != Index){
-          swap(arr[largestIndex], arr[index]);
-          index = largestIndex;
-          heapify(index); // recursion heapify
+        void deleteMax(){
+            // replalce 
+            arr[1] = arr[len];
+            len--;
+            
+            int index = 1;
+            while(index <= len){
+                int left = 2*index;
+                int right = 2*index+1;
+                int largestIndex = index;
+                
+                if(left <= len && arr[largestIndex] < arr[left]){
+                    largestIndex = left;
+                }
+                
+                if(right <= len && arr[largestIndex] < arr[right]){
+                    largestIndex = right;
+                }
+                
+                if(arr[largestIndex] != arr[index]){
+                    swap(arr[index],arr[largestIndex]);
+                    index= largestIndex;
+                }
+                else{
+                    break;
+                }
+                
+            }
+            
+            
         }
         
-    }
-
-
-  void buildHeap(int a[],int n){
-    for(int i=n/2;i>0;i--)
-      {
-        heapify(a,i);
-      }
-  }
-
-  void heapsort(int a[],int n){
-    
-    while(n != 1){
-      swap(a[1],a[n]); // max element went to last of array
-      n--;
-      heapify(a,n,1);
-    }
-    
-  }
+        void print(){
+            cout<<"numbeer of elemetn in heap - "<<len<<endl;
+            for(auto x:arr)
+                cout<<x<<" ";
+                
+            cout<<endl;
+        }
 
 };
 
-int main(){
+void heapify(vector<int>& data, int curr, int n){
+    int left = 2*curr;
+    int right = 2*curr+1;
+    int largestIndex = curr;
+    
+    if(left <= n && data[left] > data[largestIndex]){
+        largestIndex = left;
+    }
+    
+    if(right <= n && data[right] > data[largestIndex]){
+        largestIndex = right;
+    }
+    
+    if(curr != largestIndex){
+        swap(data[largestIndex],data[curr]);
+        heapify(data,largestIndex,n);
+    }
+}
 
-  Heap h;
-  h.arr[0]=-1;
-  // input - 50 30 70 40 80 100 -1
-  cout<<"Enter elements - ";
-  int temp;
-  cin>>temp;
-  while(temp != -1){
-    h.insert(temp);
-    cin>>temp;
-  }
+void build_heap(vector<int>& data, int n){
+    // apply heapify on non leaf nodes
+    for(int i = n/2;i>=1;i--){
+        heapify(data,i,n);
+    }
+}
 
-  cout<<"show heap - ";
-  for(int i=1;i<=h.size;i++){
-    cout<<h.arr[i]<<" ";
-  }
 
-  cout<<endl;
-  
-  h.insert(110);
+void heap_sort(vector<int>& data, int n){
+    // swap max element with the last and apply heapify
+    
+    int i = n;
+    while(i>1){
+        swap(data[1],data[i]);
+        n--;
+        
+        heapify(data,1,n);
+        i--;
+    }
+}
 
-  cout<<"show heap - ";
-  for(int i=1;i<=h.size;i++){
-    cout<<h.arr[i]<<" ";
-  }
+int main() {
+    
+    heap h;
+    h.insert(3);
+    h.insert(7);
+    h.insert(18);
+    h.insert(12);
+    h.insert(8);
+    h.insert(9);
+    h.insert(6);
+    // h.insert(50);
+    
+    h.print();
+    
+    h.deleteMax(); // delete top max elelent
+    h.print();
+    
+    cout<<"build heap"<<endl;
+    vector<int> data = {-1, 5,3,4,2,6,7};
+    int n = 6;
+    build_heap(data,n);
+    
+    cout<<"printing heap - "<<endl;
+    for(auto x: data) cout<<x<<" ";
+    cout<<endl;
+    
+    cout<<"heap sorting - ";
+    heap_sort(data,n);
+    for(auto x: data) cout<<x<<" ";
+    cout<<endl;
+    
+    
+    
 
-  return 0;
+    return 0;
 }

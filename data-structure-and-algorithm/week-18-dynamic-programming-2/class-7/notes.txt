@@ -1,0 +1,5 @@
+buy and sell stocks
+decison making pattern
+hashing pattern
+MCM pattern
+3d dp (burst baloon question) --> important question

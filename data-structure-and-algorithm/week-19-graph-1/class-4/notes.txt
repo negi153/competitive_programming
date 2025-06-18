@@ -1,0 +1,38 @@
+shortest pat - 
+    undirected graph with assuming weight - 1
+    observation - when we do BFS on a graph, and if target nodes comes for the first time, that is the shortest path from source to target
+
+    logic - 
+        1. enguque source : add source node to queue
+        2. mark visited: mark source node as visited and parent as -1
+        3. BFS traversal : while queue is not empty:
+            - take front node and add into queue if not visited
+            - mark neighbour as visited
+            - set parent of neighbour as front
+        4. construct path:
+            - start from destination.
+            - backtrack to source using parent
+        5. reverse path to get the correct order
+        6. output path - print the shortes path
+
+    directed graph with weights - 
+        - this can be used if we need shortest path from source node to all the other node. but graph should be DAG (directed acyclic graph), so topological sort can be implemented.
+        logic - 
+            1. find the topological sort in stack
+            2. for each node in stack, update the distance aray. (distance array stores the minimum distance from source to that node)
+
+            if we need to find the path, then we need to keep track of parent.
+
+Dijkastra algorithm - (find the distance of all the nodes from source node)
+    - greedy approach, it gets the node which has minimum distance from source from distance array and process it's neighbours
+    - set is used to get the minimum distance
+    - for each neighbour of the minimum distance node, udate the distanc of nodes in set as well as in distance array
+
+Dijkastra - 
+    2 types of implementation - 
+        1. use of priority queue/set where reevaluation is not allowed(means  if a node is already processed, then don't process it)  --> here, negative weight graph or negative cycle graph will not work
+        2. use of priority queue/set where reevaluation is allowed (means  if a node is already processed, then dwe can process it again)
+            - undirected - code will not work in negative weight or negative cycle. because a single negative edge is bidirectional means it's a negative cycle
+            - directed -  code will work in negative weight. but in negative cycle, it will not work
+
+

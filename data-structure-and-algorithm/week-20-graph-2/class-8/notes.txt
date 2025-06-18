@@ -1,0 +1,94 @@
+Strongly connected component - kosaraju's algorithm
+     graph ka aisa component jiske andar ham kisi v ek vertex se dursre vertex tk pahunch skta hain
+
+     prerequisite - 
+        1. topological stack implementation
+        2. stack
+        3. reversinng edges in adjacency list 
+
+    
+    in graph "stongly-connected-component.png", 
+        0->1->2->3  = this is first strongly connected component because - 
+            - ham 0 to 1 ja skte h or 1 to 0 bhi ja skte h
+            - ham 1 to 2 ja skte h or 2 to 1 bhi ja skte h
+            - ham 2 to 3 ja skte h or 3 to 2 bhi ja skte h
+            - ham 3 to 0 ja skte h or 0 to 3 bhi ja skte h
+
+            another way of thinking - 
+                - 0 se ham 1,2,3,0 ja skte h
+                - 1 se ham 2,3,0,1 ja skte h
+                - 2 se ham 3,0,1,2 ja skte h
+                - 3 se ham 0,1,2,3 ja skte h
+
+        4->5->6  = this is second strongly connected component because
+            - ham 4 to 5 ja skte h or 5 to 4 bhi ja skte h
+            - ham 5 to 6 ja skte h or 6 to 5 bhi ja skte h
+            - ham 6 to 4 ja skte h or 4 to 6 bhi ja skte h
+
+        7 = this is third strongly connected component because - 
+            - ham 7 to 7 ja skte h
+
+        int his ghraph, count of strongly connected component = 3
+
+    reversing edge logic - scc(strongly connected component)
+        scc1 -> scc2 -> scc3
+        above is strongly connected component where 3 components are present, so if we just apply DFS, we won't be able to count the strongly connected component because we can't differentiate it. 
+
+        scc1 <- scc2 <- scc3
+        but if we reverse the edges, we can traverse scc1 and it will stop there because it can't go to scc2, 
+        then we will traverse scc2, it can't go to ssc3 and also can't go to scc1 as it's already visited
+        then we travesre scc3. 
+
+        in this way we can count the count of strongly connected component.
+
+    how we will know from which node to start ? -> for this we will use topological sort.
+
+    logic - this algorithm is called kosaraju algorithm
+        1. find the orderring in which we should traverse the graph by topological
+        2. reverse all edges because we don't the edges which connects the scc. reversing all the edges will not make any impact in scc. it will just reverse the cycle in graph
+        3. Count the scc using DFS
+
+-----------------------------
+Bridges in a graph -  (tarjan's algorithm)
+
+    - ek aisi edge, jisko delete krne se graph ka diconnected component ka count increase kr k 2 ya 2 se jyada ho jata h, usko bridge khte h.
+        matlb, agr edge delete kia or graph divide ho gya usko bridge bolte h
+
+    - "bridge-in-graph.png", in this example, edge 0 to 3 and 3 to 4 are 2 bridges.
+        - if we will delete edge 0-3, then graph will be divided into 2 parts. means earlier it had only only 1 disconnected component, now it will have 2 disconnected component. so 0 to 3 is an bridge
+        - if we will delete edge 3-4, then graph will be divided into 2 parts. means earlier it had only only 1 disconnected component, now it will have 2 disconnected component. so 3 to 4 is an bridge
+
+    brute force approach - 
+        1. count the number of disconnected components in graph
+        2. delete edges one by one and in each iteration find the number of disconnected components in graph.
+        3. if count increases then it means it was an bridge
+
+        time complexity - o(E * (V+E))  --> E is for deleting each edge, (V+E) is for counting the disconnected component using DFS
+        not good as it tends similar to o(n^2)
+
+    Tarjan's algorithm - 
+        we need below thigs - 
+            tin - insertion time (node pe kb start kia h )
+            low time - lowest insertion time (node tak pahunchne ka sbse lowest time)
+
+        - initially insertion time and lowest time for each node will be same.
+        - if lowest time of child is more than lowest time of parent, that means there is only 1 way to reach child by this parent, that means it's a bridge.
+        if low_time[child] < low_time[parent], that means there was another way to reach child apart from parent. so if we delete this edge, it won't created disconnected component. so this won't be bridge
+        - if we are at a current node, and if there is a path possible to another node apart from his parent and that is visited, that means this was another path for the current node, so update the loswest time of current node with the lowest time of another node
+
+        NOTE 
+            - when we are checking neighrour, then never compare with parent
+            - agar neighbour  is not visited then call dfs(). after that update the low. then check below condition (bridge hai ki ni)
+            - agar neighbour is visited and it's not parent, then update low.
+
+        eg.
+
+            P->M
+            node P (insertion time = a, lowest time = b), node M(insertion time = c, lowest time = d)
+
+            if (d>b) means low[child] > low[parent]
+                - Node M tak sirf node P se ja skte h, so P->M is a bridge, kyunki agr usko delete kia to 2 disconnected component ban jayenge
+
+            if (d<b) means low[child] < low[parent]
+                - Node M tak kahin or se bhi pahuch sakte h, so agar ham p->M edge delete kr denge to new disconnected component nahi banega, so ye bridge ni h
+ 

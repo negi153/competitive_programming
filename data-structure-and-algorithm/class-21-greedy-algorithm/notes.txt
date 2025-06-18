@@ -1,0 +1,40 @@
+greedy algorithm - find the optimal answer at that moment. 
+    eg. we have notes of rupees 100, 500, 300, 50, 10. our goal is to pick 3 notes so we can have maximum money, so by greedy approach we will pick the top 3 max notes.
+
+greedy approach may not be always correct.
+
+"max-train-in-platform.cpp", in this problem - 
+    this will give the non-overlapping intervals
+    - why sorting by departure time works ? 
+        - You want to select the maximum number of non-overlapping intervals (train schedules here).
+
+        - To achieve this, you sort by the earliest possible finish time (departure) to leave the platform free for as many future trains as possible.
+
+        - By always picking the train that frees the platform earliest, you maximize the number of future compatible trains.
+
+    - why sorting by arrival time fails?
+        - If you sort by arrival time, you're not considering how long a train occupies the platform. A train that arrives early but departs late could block shorter trains that could have fit in otherwise.
+----------------------------------
+Q. in a shop, there is a offer, on 1 candy, we can choose 2 candies.
+    prices of candies - {3,2,4,5,7,6}
+
+    - find the minimum amount which i will have to  spend to buy all the candies ? 
+        - sort the prices - 2,3,4,5,6,7
+            we will buy candies with price 2 and get the free candies with prices 6 and 7
+            we will buy candies with price 3 and get the free candies with price 4 and 5.
+            so minimum we spend = 2 + 3
+
+            use 2 pointer, left pointer to buy candy and right pointer for free candy
+
+    - find the maximum amount which i will have to spent to buy all the candies ? 
+        - sort the prices - 2,3,4,5,6,7
+        - we will buy candy with price 7 and get free candies with price 2 and 3
+        - we will buy candy with price 6 and get free candies wih price 4 and 5
+        - so total maximum we spent = 6 + 7 
+
+        use 2 pointer, left pointer for free candy and right pointer to buy candy
+-----------------------------------
+problems - 
+    1. activity selection problems
+    2. n meetings in 1 room
+    3. huffman encoding

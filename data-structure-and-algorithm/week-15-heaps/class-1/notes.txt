@@ -1,3 +1,5 @@
+CBT (complete binary tree) - a binary tree where all levels are completely filled, except possibly the last level, which is filled from left to right
+
 heap -> a datastructer that is a complete binary tree(CBT) and that holds a heap property
     max heap property -> current node more than it's child
     min heap property -> current node less than it's child

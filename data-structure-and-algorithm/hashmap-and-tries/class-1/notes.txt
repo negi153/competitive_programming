@@ -1,0 +1,29 @@
+map - 
+    ordered - o(logn) - based on BST
+    unordered - o(1) - based on array. hash function is used to map
+
+hash function - hash code + compression function
+hash code - convert key into numeric value 
+compression function - will convert numberic value in the range of the array
+
+
+collision - happens when has code comes same
+collision handliing 
+    1. open hashing - if 2 elements comes in same index. store them in the form of linked list at that posotion
+
+    2. close addressing - 
+
+        linear probing [f(i) = i] - if a element is presnet at a location and another elements also want to come into that position, then we add new element in the next position if itls blank . when next is blank, then move to next etc.
+
+        quadratic probing [f(i) = i^2] - if a element is present at i, and second is also need to be there, then go to i^2 this index
+
+
+
+if number of elemts is n and free boxes are b , then a good has function will be when 
+    n/b < 0.7
+
+
+unordered_map<int,int> mp;
+map<int,int> mp; // this is ordered map
+
+home work - create a datastructure which does insertion,deletion,searching,get random in o(1)

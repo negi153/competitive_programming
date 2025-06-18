@@ -1,0 +1,97 @@
+bitwise operator - 
+    & , | , ~ , ^ , << , >>
+
+    x<<i => x * 2^i
+    x>>i => x / 2^i 
+
+odd/even logic ->
+    odd numbers have 1 in rigtmost binary position . 
+    if n & 1 == 0 ---> even
+    if n & 1 == 1 ---> odd
+
+    why we don't use mode to check even/odd. because it's heavy operation.
+
+Bit Masking -> 
+    logic - 
+        - find the mask
+        - find the bitwise operation 
+
+    1. get ith bit - 
+        n = 10
+        binary -    0 0 1 0 1 0
+        position -  5 4 3 2 1 0
+
+        find the 3rd bit (means index 3 from right) which is 1.
+
+        binary - 0 0 1 0 1 0
+     &  mask  -  0 0 1 0 0 0  --> apply '&' operation with a mask to identity the ith bit.
+
+     and mask is just left shift 1 to 3 times.
+
+        logic - (find ith bit)
+            int mask = 1<<i; // left shift 1 to ith time to get the mask
+            int ans 
+            = n & mask;
+            if(ans == 0)
+                cout<<"ith bit is "<<0;
+            else
+                cout<<"ith bit is "<<1;
+
+    2. change the ith bit.
+        - if putting 1 in ith bit, then we say "set ith bit"
+
+        int a = 10;
+        int i=2; // set ith bit
+        int mask = 1<<i;
+        a = a | mask; // it will change 2nd bit from right to 1
+
+        - if putting 0 in ith bit, then we say "clear ith bit"
+
+        mask = ~(1<<i);
+        int ans3 = n & mask;
+
+    3. update ith bit
+
+    4. clear last i bitwise
+        int mask = (-1 << i);
+        n = n & mask;
+
+    5. IMPORTANT - check if number is power of 2 
+
+        if ((n & (n-1)) == 0)
+            then it is powe of 2 
+
+    6. IMPORTANT -   count set bits (how many bits are 1)
+        approach 1 - Brute force - 
+            - do right shift and apply "&" with 1
+            - count set bits
+
+            time complexity - log (n) - becaue to find the number of bits in a number, when we divide by 2, so the it takes log(n)
+
+            n = 10
+            c = 0
+            while(n != 0 ){
+                int lastBit = n & 1;
+                if(lastBit== 1)
+                    c++;
+
+                n = n >> 1; // right shift
+            }
+
+        approach 2 - faster
+            time complexity - o(number of set bits)
+            
+            int count = 0;
+            while(n!=0){
+                // remove last set bit
+                n = (n & (n-1));
+                count++;
+            }
+
+
+IMPORTANT - 
+        (n & (n-1)) --> this removes the last set bit from number from right
+
+-1 => 1 1 1 1 11 1 1 1 1 . ..... (binary)
+-------------------------------------------        
+1.  fast expontiation using bit masking 

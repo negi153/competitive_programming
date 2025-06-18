@@ -1,0 +1,8 @@
+tries - datastructue, multiway tree. one node has many nodes.
+
+used for pattern searching.
+time complexity  - o(length of pattern)
+
+insertion of string in trie ->
+    if node is present, then go inside that
+    if node is not present, then create a node

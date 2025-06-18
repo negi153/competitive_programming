@@ -1,0 +1,82 @@
+Graph - a type of datastructure which is the combination of nodes and edges.
+    node or vertex - to store data
+    edtes - to connect nodes
+
+why need graph?
+    - google map
+    - facebook
+
+Types of graph - 
+    1. directed graph -> edge has arrow (uni-directional)
+    2. undirected graph -> edge doesn't have arrow (bi-directional). in undirected graph, we can gro from a to b and b to a as well.
+
+weighted graph -> if edge has weight, then it is called weighted graph
+    1. wieghted directed graph - graph has directed edges and has weight
+    2. weighted undirected graph - graph has undirected edges and has weight
+
+if weight is not mentioed in graph, and we need weight to process graph, then assume it as 1
+
+Degree - 
+    in case of -
+        undirected  graph -> no. of edges connected with node is called degree of node
+    incase of directed graph - 
+        indegree - number of incoming edge of a node
+        outdegree - number of outgoing edge of a node
+
+path - sequence of nodes where each node is visible only one time
+    a->b->c->d = this is correct path
+    a->b->c->d->a = this is not correct path as node a is coming 2 time
+
+cyclic graph - graph which has cycle, means if i am traversing from a and returning again on a. a->b->c->d->a
+    if it has weight then it's "weighted cyclic graph"
+    if it has direction in edges, then it's "weighted cyclic directed graph"
+acyclic graph - graph which doesn't have cycle
+    if it has weight then it's "weighted acyclic graph"
+    if it has direction in edges, then it's "weighted acyclic directed graph"
+
+graph implementation - 
+    1. adjacency matrix - used 2d array. space o(n^2) (n is no. of nodes)
+    2. adjacency list - using below - 
+                                1. map with list (in stl, it's doubly linked list)
+                                2. map with vevctor
+                                3. map with set
+
+                            space complexity - (v is vertex and E is edge)
+                                average - o(v+E)
+                                worst - o(v^2)
+
+adjacency matrix -  create 2d array, if there is an edge between node 0 and 1,
+                    if undirected graph, then put 1 in arr[0][1] and arr[1][0]. means this is undirected.
+                    if directed graph, then put 1 in arr[0][1]. means this is directed
+                    and in all the other nodes put 0. means there is no edge
+
+adjacency list - check the images
+
+if we have weighted graph - 
+    then in adjacency list, store the weight as well in the vector as shown in image - adjacency-list-with-weight.png
+     
+    then in adjancecy matrix, store the weight in the cell instead of 1 if we have edge, otherwise leave it as 0
+
+graph traversal --
+-----------------
+1. BFS (breadth first search) - level order traversal
+
+
+2. DFS (Depth first search) - inorder,preorder,postorder traversal
+
+
+- every tree is a graph, but every graph is not tree.
+
+BFS - 
+    1. add first node in queue
+    2. while queue is not empty:
+            - take front element from queue
+            - print node, delete front of queue
+            - mark that node as visited
+            - iterate on all the childrens of current node and add those in queue if they are not visited earlier 
+
+- if in our graph, we have 2 different graph (eg. 1->2->3 is first graph and 5->8->9->10 is second graph, overall this is a single graph), then this kind of graph is called disconnected graph
+
+DFS - 
+    1.  print the current node, and mark it as visited
+    2. iterate on each child of current node, if its not visited then make a recursive dfs call for that child

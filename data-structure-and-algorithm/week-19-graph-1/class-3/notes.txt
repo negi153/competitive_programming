@@ -1,0 +1,44 @@
+topological sort
+    - linear ordering of vertices such that for every edge u->v, u comes before v in that ordering.
+
+    eg. below are the edges of graph
+            1->2
+            2->3
+            1->3
+
+print first node, then remove that node from the picture and find another first node, that doesn't have dependency. and go on. this is topological sort        below are three ordering - 
+            1 2 3 -> this is topoligical, as for every edge u->v, u comes before v
+            3 1 2 -> not topological
+            3 2 1 -> not topological
+
+    node which doesn't have dependency, it will come first, then remove the first node, again pirnt the non-dependency node. go on ..
+
+condition for topological sort - valid topoligical sort can only be applied on DAG(directed acyclic graph)
+
+Logic to create topological sort - 
+        1. apply dfs on graph,
+        2. when recursive calls coming back for a node, then put that node into stack. in stack the elements of topological sort will be stored in reverse order, so when we pop the stack and print the element, it will be a topological sort.
+
+
+topological sort using BFS is kahn's algorithm
+
+        logic - in queue, only that element will come which has indegree as 0 (means incoming edges is 0 ). then remove that element from graph
+
+in a cyclic graph, length of topological sort is never equal to number of nodes 
+
+cycle detection in directed graph using BFS - 
+        - prerequisites- kahn's algorithm
+        logic - 
+                - get the topological sort of graph using kahns' algorithm, 
+                - if length of topological sort is equal to number of nodes, then it's DAG(directed acyclic graph) means there is no cycle
+                - if length of topological sort is not equal to number of nodes, then it's not DAG. means it has cycle
+
+NOTE - if we are able to get valid topologica sort of a graph, that means it's a DAG (directed acyclic graph).
+
+cycle detection in undirected graph - 
+        using BFS & DFS - logic - if node is already visited and nbr != parent
+
+cycle detection in directed graph - 
+        using DFS - node is visited & node is also present in dfsCall stack
+
+        using BFS - if graph is invalid topological sort, then it has cycle

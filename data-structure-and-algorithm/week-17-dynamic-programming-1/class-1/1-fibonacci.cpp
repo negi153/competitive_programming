@@ -72,7 +72,7 @@ public:
 
 
     int fib(int n) {
-        // 1. recursive solution --> time--> exponential, space->o(n) 
+        // 1. recursive solution --> time--> exponential, space->o(n) (due to stack calls)
         // int ans = recSolve(n); 
         // return ans;
         

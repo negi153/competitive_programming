@@ -11,4 +11,4 @@ below are similar to o/1 knapsack.
 
 2. subset sum
 3. equal subset sum partition
-4. min subset sum difference
+4. min subset sum difference  - important (pending)

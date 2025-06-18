@@ -1,0 +1,50 @@
+
+cycle detection pattern - idea is that, if a node already visited and we came again on that node, check if child is not reaching to it's parent, then cycle is present there.
+    - directd graph 
+        - find cycle using BFS
+        - find cycle using DFS
+    - undirected graph 
+        - find cycle using BFS
+        - find cycle using DFS
+
+    undirected cycle detection using BFS - 
+        1. initial step
+            - create queue
+            - add source node in queue
+            - visited of source node mark as true
+            - parent of source node as -1
+        2. while queue is not empty
+            - take front and pop it from queue
+            - iterate on each neighbour -  
+                - if neighbour is not visited
+                    - mark parent of neighbour as current 
+                    - mark neighbour node as visited
+                - if neighbour is visited - 
+                    if neighbour is not the parent of the front node i.e (prent[front] != neighbour) - 
+                        then cycle is present
+
+    undirected cycle detection using DFS - 
+        1. mark current node as visited
+        2. iterate on each neighbour - 
+            - if neibour is not visited
+                - visit that node using recursion and get the answer
+                - if anser is true, then return true (means cycle is present)
+            - if neighbour is visited  
+                - if neighbour is not the parent of current node, then cycle present                  
+
+
+    directed cycle detection using BFS -> will do later on
+
+    directed cycle detection using DFS - undirected cycle detection using DFS will not work
+        /Users/mukesh/Desktop/github/competitive_programming/data-structure-and-algorithm/week-19-graph-1/class-1/undirected-cycle-detection-logic-failed-in-directed-cycle-detection.png --> here, as per the undirected cycle detection using DFS, cycle should be present, but it's not present in actual, so the undirected cycle detection using DFS failed here.
+
+    logic - here we will keep track of visited as well as DFS calls. visited will always keep true if visited. but dfscalls will keep true if it' in recursion stack and false if it's not in recursion stack. if we found the node where it's is visited and also present in dfs calls then we can say that there is cycle
+
+        1. mark source node as visited and also in dfscalls
+        2. iterate on each neighbnour
+            1. if neighbour is not visited
+                - make recursive dfs call for neighbour
+                - mark neighbour as false in dfscalls
+                - if ans is true then return true
+            2. if neighbour is visited
+                - if dfscall of neighbour is true, then there is a cycle present in directed graph
