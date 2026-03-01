@@ -1,0 +1,19 @@
+Two pointers - 
+
+    Scenario: Look for problems where you need to iterate through the array with two pointers, typically starting from different ends or positions within the array. - Consider tasks that involve comparing or manipulating elements from two different parts of the array simultaneously.
+
+    Clue: Look for problem descriptions mentioning a sorted array or the need to compare elements from both ends of the array.
+
+- To find pairs whose sum is a target value, we can use 2 pointers. But first sort the array.
+
+Two pointers variations - 
+    1. opposite ends - two sum, container with most water
+    2. same ends - remove duplicates, string variations
+    3. fast and slow pointers - linked list
+    4. partition - dutch national flag algo, quick sort
+
+checklist for two pointers - 
+    1. array sorted
+    2. some shrinking is happening
+    3. some part is growing and some part is shrinking (monotonic condition)
+    4. when we need to go from o(n^2) to o(n) and array is sorted

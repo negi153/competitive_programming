@@ -1,0 +1,6 @@
+Scenario: Identify problems involving intervals or ranges of values, such as time intervals, scheduling, or overlapping events. - Look for tasks where you need to combine or compare intervals, merge overlapping intervals, or find intersections between them.
+Clue: Look for problems where the input involves intervals represented as pairs of start and end points, and the task revolves around combining or manipulating these intervals.
+
+merge interval logic - 
+    1. sort arry based on start time.
+    2. check if curr.start <= prev.end, then merge intervals
